@@ -30,7 +30,7 @@ function pickComputerMove() {
 
 let isAutoPlaying = false;
 let intervalID;
-function autoPlay(){
+/*function autoPlay(){
 	if(!isAutoPlaying){
 		intervalID = setInterval(function(){
 			const playerMove = pickComputerMove();
@@ -42,7 +42,30 @@ function autoPlay(){
 		isAutoPlaying = false;
 	}
 
+}*/
+function autoPlay(){
+
+    if(!isAutoPlaying){
+
+        intervalID = setInterval(function(){
+            const playerMove = pickComputerMove();
+            playGame(playerMove);
+        }, 2000);
+
+        isAutoPlaying = true;
+
+        document.querySelector('.auto-play-button').innerHTML = 'Stop Auto Play';
+
+    }else{
+
+        clearInterval(intervalID);
+
+        isAutoPlaying = false;
+
+        document.querySelector('.auto-play-button').innerHTML = 'Auto Play';
+    }
 }
+
 
 
 //playing using keyboard
